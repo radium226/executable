@@ -23,7 +23,7 @@ public class SayHelloWorld extends Executable {
 	@Option(name = "--name", required = true)
 	private String name;
 	
-	// That's the main(String[] arguments) equivalent
+	// That's the main(arguments) equivalent
 	@Override
 	public Status execute() {
 		System.out.println(String.format(helloWorld, name));
