@@ -1,5 +1,7 @@
 # executable
 
+The `Executable` class can be use to create `main` classes with Guice and Arg4j. 
+
 ```java
 public class SayHelloWorld extends Executable {
 	
