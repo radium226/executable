@@ -1,27 +1,12 @@
 # executable
 
 ```java
-package radium.example;
-
-import org.kohsuke.args4j.Option;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Inject;
-import com.google.inject.name.Named;
-import com.google.inject.name.Names;
-
-import radium.executable.Executable;
-import radium.inject.Discoverable;
-
 public class SayHelloWorld extends Executable {
-
-	@Discoverable(inject=true)
+	
+	// Let's add a Guice module which will be discovered automatically.
+	@Discoverable(inject = true)
 	public static class HelloWorldModule extends AbstractModule {
 
-		public HelloWorldModule() {
-			super();
-		}
-		
 		@Override
 		protected void configure() {
 			bindConstant().annotatedWith(Names.named("hello_world")).to("Hello, %s! ");
@@ -29,19 +14,23 @@ public class SayHelloWorld extends Executable {
 		
 	}
 	
+	// We use Guice's injection
 	@Inject
 	@Named("hello_world")
 	private String helloWorld;
 	
+	// We can use Arg4j's @Option, @Argument, etc.
 	@Option(name = "--name", required = true)
 	private String name;
 	
+	// That's the main(String[] arguments) equivalent
 	@Override
 	public Status execute() {
 		System.out.println(String.format(helloWorld, name));
 		return Status.SUCCESS;
 	}
 	
+	// We bind the main(arguments) with the execute(arguments) method above here. 
 	public static void main(String[] arguments) {
 		execute(SayHelloWorld.class, arguments);
 	}
