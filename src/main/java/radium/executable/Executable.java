@@ -2,6 +2,7 @@ package radium.executable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -10,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import radium.inject.Injectors;
+import radium.inject.arg4j.Arg4jModule;
 
 import com.google.inject.Injector;
 
@@ -43,7 +45,12 @@ public abstract class Executable {
 	public static void execute(Class<? extends Executable> executableClass, String... arguments) {
 		String executableClassSimpleName = executableClass.getSimpleName();
 		// Let create the Guice injector. 
-		Injector injector = Injectors.discoverInjector();
+		Injector injector = null; 
+		try {
+			injector = Injectors.discoverInjector(new Arg4jModule(executableClass, arguments));
+		} catch (CmdLineException e) {
+			e.printStackTrace();
+		}
 		try {
 			try {
 				Method createInjectorMethod = executableClass.getMethod("createInjector");
@@ -77,7 +84,7 @@ public abstract class Executable {
 		// We can now instanciate the subclass of Executable. 
 		Executable executable = injector.getInstance(executableClass);
 		
-		CmdLineParser parser = new CmdLineParser(executable, parserProperties);
+		/*CmdLineParser parser = new CmdLineParser(executable, parserProperties);
 		executable.parser = parser;
 		try {
 			parser.parseArgument(arguments);
@@ -85,7 +92,7 @@ public abstract class Executable {
 			e.printStackTrace();
 			usage(executableClass, parser);
 			exit(Status.FAILURE);
-		}
+		}*/
 		
 		Status status = executable.execute();
 		exit(status);

@@ -29,12 +29,11 @@ public class MapSetter implements Setter {
     
     @Override
     public void addValue(Object value) throws CmdLineException {
-        System.out.println("???");
         map.put(optionOrArgument, Optional.of(value));
     }
 
     @Override
-    public Class getType() {
+    public Class<?> getType() {
         return field.getType();
     }
 

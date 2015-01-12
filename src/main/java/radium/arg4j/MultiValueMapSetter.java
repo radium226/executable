@@ -38,7 +38,7 @@ public class MultiValueMapSetter implements Setter {
     @Override
     public void addValue(Object value) throws CmdLineException {
         if (!map.containsKey(optionOrArgument)) {
-            map.put(optionOrArgument, Optional.of(Lists.newArrayList()));
+            map.put(optionOrArgument, Optional.<Object>of(Lists.newArrayList()));
         }
         
         ((List<Object>) map.get(optionOrArgument).get()).add(value);

@@ -27,8 +27,8 @@ public class TryArg4j {
     }
     
     public static void main(String[] arguments) throws CmdLineException {
-        Map<Object, Optional<Object>> map = Arg4j.forClass(Main.class).parseArguments(new String[] {"--option=value"});
-        System.out.println("map=" + map);
+        //Map<Object, Optional<Object>> map = Arg4j.forClass(Main.class).parseArguments(new String[] {"--option=value"});
+        //System.out.println("map=" + map);
     }
     
 }

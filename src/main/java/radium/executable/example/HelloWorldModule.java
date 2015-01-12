@@ -14,6 +14,7 @@ public class HelloWorldModule extends AbstractModule {
     @Override
     protected void configure() {
         bindConstant().annotatedWith(Names.named("hello_world")).to("Hello, %s! ");
+        bind(Foo.class).asEagerSingleton();
     }
     
 }
