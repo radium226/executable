@@ -3,7 +3,7 @@
     <groupId>radium</groupId>
     <artifactId>executable</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <scm>
         <url>https://github.com/radium226/executable</url>
         <connection>scm:git:https://github.com/radium226/executable.git</connection>
