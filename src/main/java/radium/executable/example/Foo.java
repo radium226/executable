@@ -1,8 +1,8 @@
 package radium.executable.example;
 
-import org.kohsuke.args4j.Option;
-
 import com.google.inject.Inject;
+
+import org.kohsuke.args4j.Option;
 
 public class Foo {
 
