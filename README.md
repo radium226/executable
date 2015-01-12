@@ -22,6 +22,7 @@ public class SayHelloWorld extends Executable {
 	private String helloWorld;
 	
 	// We can use Arg4j's @Option, @Argument, etc.
+	@Inject
 	@Option(name = "--name", required = true)
 	private String name;
 	
