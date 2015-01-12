@@ -3,7 +3,7 @@
     <groupId>radium</groupId>
     <artifactId>executable</artifactId>
     <packaging>jar</packaging>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
 <prerequisites>
        <maven>3.0.5</maven>
      </prerequisites>
@@ -11,7 +11,7 @@
         <url>https://github.com/radium226/executable</url>
         <connection>scm:git:https://github.com/radium226/executable.git</connection>
         <developerConnection>scm:git:https://github.com/radium226/executable.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>executable-1.2</tag>
     </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
