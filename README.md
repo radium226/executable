@@ -1,4 +1,4 @@
-# executable
+# executable [![Dependency Status](https://www.versioneye.com/user/projects/54c88c136c6310883900005e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/54c88c136c6310883900005e)
 
 The `Executable` class can be use to create `main` classes with Guice and Arg4j. 
 
